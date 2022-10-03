@@ -9,7 +9,7 @@ resource "aws_cloudformation_stack" "datadog_aws_integration" {
     InstallLambdaLogForwarder      = false
     CloudSecurityPostureManagement = false
   }
-  template_url = "https://datadog-cloudformation-template-quickstart.s3.amazonaws.com/aws/main_v2.yaml"
+  template_url = var.api_stack_template_url
 
   tags = {
     app     = "datadog"
@@ -40,11 +40,12 @@ resource "aws_cloudformation_stack" "datadog_forwarder" {
   name         = "datadog-forwarder"
   capabilities = ["CAPABILITY_IAM", "CAPABILITY_NAMED_IAM", "CAPABILITY_AUTO_EXPAND"]
   parameters = {
+    # TODO: Using a data resource, pull in the dd_api_key. This is too coupled.
     DdApiKeySecretArn   = aws_secretsmanager_secret_version.dd_api_key.arn,
     ReservedConcurrency = var.lambda_forwarder_reserved_concurrency,
   }
 
-  template_url = "https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml"
+  template_url = var.lambda_forwarder_stack_template_url
 
   tags = {
     app     = "datadog"
