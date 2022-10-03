@@ -3,11 +3,13 @@
 ## Usage
 
 ```terraform
-module "elasticache" {
+module "datadog_integration" {
   source  = "app.terraform.io/allma/datadog-integration/aws"
-  version = "0.1.0"
+  version = "0.1.1"
 
-  subnet_ids = var.subnet_ids
+  dd_api_key = "<Datadog API Key"
+  dd_app_key = "<Datadog Application Key>"
+  lambda_forwarder_reserved_concurrency = 10
 }
 ```
 
