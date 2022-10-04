@@ -5,7 +5,7 @@
 ```terraform
 module "datadog_integration" {
   source  = "app.terraform.io/allma/datadog-integration/aws"
-  version = "0.1.1"
+  version = "~> 0.2"
 
   dd_api_key = "<Datadog API Key"
   dd_app_key = "<Datadog Application Key>"
