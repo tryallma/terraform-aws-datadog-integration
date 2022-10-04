@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 # A wrapper on top of the provided CloudFormation stack
 # https://www.terraform.io/docs/providers/aws/r/cloudformation_stack.html
 resource "aws_cloudformation_stack" "datadog_aws_integration" {
@@ -51,4 +53,9 @@ resource "aws_cloudformation_stack" "datadog_forwarder" {
     app     = "datadog"
     service = "log-forwarder"
   }
+}
+
+resource "datadog_integration_aws_lambda_arn" "main_collector" {
+  account_id = data.aws_caller_identity.current.account_id
+  lambda_arn = aws_cloudformation_stack.datadog_forwarder.outputs["DatadogForwarderArn"]
 }
