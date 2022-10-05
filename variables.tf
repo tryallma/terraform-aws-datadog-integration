@@ -27,3 +27,14 @@ variable "lambda_forwarder_stack_template_url" {
   description = "URL to Datadog Lambda Forwarder Stack CloudFormation template"
   default     = "https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml"
 }
+
+variable "log_collection_aws_services" {
+  type        = list(string)
+  description = "DD Lambda function will automatically collect logs from these AWS services. See https://docs.datadoghq.com/api/latest/aws-logs-integration/?code-lang=curl for more info."
+  default = [
+    "cloudfront",
+    "elbv2",
+    "lambda",
+    "s3",
+  ]
+}
