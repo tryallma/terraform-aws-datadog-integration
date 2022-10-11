@@ -1,5 +1,9 @@
 # Datadog AWS Integration Module
 
+## Introduction
+
+This Terraform module deploys the necessary AWS resources to support Datadog monitoring in a given AWS account.
+
 ## Usage
 
 ```terraform
@@ -17,11 +21,11 @@ module "datadog_integration" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.5 |
+| [Terraform](https://www.terraform.io/)| >= [1.1.1](https://github.com/hashicorp/terraform/blob/v1.1/CHANGELOG.md) |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.5 |
+| [hashicorp/aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | >= 4.5 |
+| [Datadog/datadog](https://registry.terraform.io/providers/DataDog/datadog/latest/docs) | >= 3.0 |
