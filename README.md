@@ -4,6 +4,8 @@
 
 This Terraform module deploys the necessary AWS resources to support Datadog monitoring in a given AWS account.
 
+[Allma Datadog module](https://app.terraform.io/app/allma/registry/modules/private/allma/datadog-integration/aws)
+
 ## Usage
 
 ```terraform
@@ -11,7 +13,7 @@ module "datadog_integration" {
   source  = "app.terraform.io/allma/datadog-integration/aws"
   version = "~> 0.3"
 
-  dd_api_key = "<Datadog API Key"
+  dd_api_key = "<Datadog API Key>"
   dd_app_key = "<Datadog Application Key>"
   lambda_forwarder_reserved_concurrency = 10
 }
