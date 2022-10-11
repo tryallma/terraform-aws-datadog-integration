@@ -63,4 +63,8 @@ resource "datadog_integration_aws_lambda_arn" "main_collector" {
 resource "datadog_integration_aws_log_collection" "main" {
   account_id = data.aws_caller_identity.current.account_id
   services   = var.log_collection_aws_services
+
+  depends_on = [
+    aws_cloudformation_stack.datadog_forwarder
+  ]
 }
