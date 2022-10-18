@@ -38,3 +38,21 @@ variable "log_collection_aws_services" {
     "s3",
   ]
 }
+
+variable "tags_api_stack" {
+  type        = map(string)
+  description = "AWS Tags to apply to resources in the Datadog API CloudFormation stack"
+  default = {
+    app     = "datadog"
+    service = "api-stack"
+  }
+}
+
+variable "tags_log_forwarder" {
+  type        = map(string)
+  description = "AWS Tags to apply to resources in the Datadog API CloudFormation stack"
+  default = {
+    app     = "datadog"
+    service = "log-forwarder"
+  }
+}

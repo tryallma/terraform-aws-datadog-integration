@@ -13,10 +13,7 @@ resource "aws_cloudformation_stack" "datadog_aws_integration" {
   }
   template_url = var.api_stack_template_url
 
-  tags = {
-    app     = "datadog"
-    service = "api-stack"
-  }
+  tags = var.tags_api_stack
 }
 
 # Store Datadog API key in AWS Secrets Manager
@@ -25,10 +22,7 @@ resource "aws_secretsmanager_secret" "dd_api_key" {
   name        = "datadog_api_key"
   description = "Encrypted Datadog API Key"
 
-  tags = {
-    app     = "datadog"
-    service = "api-stack"
-  }
+  tags = var.tags_api_stack
 }
 
 resource "aws_secretsmanager_secret_version" "dd_api_key" {
@@ -49,10 +43,7 @@ resource "aws_cloudformation_stack" "datadog_forwarder" {
 
   template_url = var.lambda_forwarder_stack_template_url
 
-  tags = {
-    app     = "datadog"
-    service = "log-forwarder"
-  }
+  tags = var.tags_log_forwarder
 }
 
 resource "datadog_integration_aws_lambda_arn" "main_collector" {
