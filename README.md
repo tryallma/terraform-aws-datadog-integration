@@ -29,5 +29,5 @@ module "datadog_integration" {
 
 | Name | Version |
 |------|---------|
-| [hashicorp/aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | >= 4.5 |
+| [hashicorp/aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | >= 5.0 |
 | [Datadog/datadog](https://registry.terraform.io/providers/DataDog/datadog/latest/docs) | >= 3.0 |
