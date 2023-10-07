@@ -39,6 +39,7 @@ resource "aws_cloudformation_stack" "datadog_forwarder" {
     # TODO: Using a data resource, pull in the dd_api_key. This is too coupled.
     DdApiKeySecretArn   = aws_secretsmanager_secret_version.dd_api_key.arn,
     ReservedConcurrency = var.lambda_forwarder_reserved_concurrency,
+    LogRetentionInDays  = var.lambda_forwarder_log_retention_in_days,
   }
 
   template_url = var.lambda_forwarder_stack_template_url
